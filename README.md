@@ -6,6 +6,8 @@ This project contains two complementary studies exploring home/away effects on t
 
 Litter bags were deployed in a transect and removed randomly at each harvest point (experiment one: 3 litter bags per harvest; experiment two: 13 litter bags per harvest). We fit weibull decomposition models to the fraction litter mass remaining at each litter harvest point to describe substrate decomposition dynamics throughout each litter decay period. The weibull model characterizes the litter decay process as a continuous Weibull distribution of residence times described by scale (β),  and shape (α) parameters: 
 
+t^2^~2~ 
+
 *X*=e^(〖-(t/β)〗^α )			
 
 We then used model parameters to calculate the time to 10, 25 and 50% mass loss (t^~1/10~ , t^1/4, t^½.  
