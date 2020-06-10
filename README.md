@@ -8,7 +8,7 @@ Litter bags were deployed in a transect and removed randomly at each harvest poi
 
 *X*=e^(〖-(t/β)〗^α )			
 
-We then used model parameters to calculate the time to 10, 25 and 50% mass loss (t^1/10, t^1/4, t^½.  
+We then used model parameters to calculate the time to 10, 25 and 50% mass loss (t^~1/10~ , t^1/4, t^½.  
 t^(1-p)=β(lna(1/p) )^(1/α)				
 
 , where p is the proportion of litter mass remaining. We also calculated the litter mean residence time (MRT; (28)).
