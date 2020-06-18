@@ -24,7 +24,11 @@ In addition to the weibull model approach, we also fit standard first-order expo
  - **MetaData**: MaillardHFA_Exp1_masslossdata_metadata.csv
  - **Code**: MaillardHFA_Exp1_modelfitting.R
  
- *Experiment 2:* 
+ *Experiment 2:* Because ~13 litter bags were harvested at each time point during the experiment, we used a parametric bootstrapping approach to describe variation within model fits. Here, we fit individual probability density distributions (PDD; Weibull, normal, or lognormal) to the proportion litter mass remaining for each harvest point at each site (~13 points per distribution). We then computed the mean of *n* random draws from each PDD, where *n* equaled the number of observations used to generate each distribution, and resampled each distribution 1000 times to generate a matrix of randomly-paired draws from each harvest distribution for each site. We fit the single exponential and Weibull models to each randomly-paired series of harvest estimates (each row of the chart above) and calculated the time to 10%, 25%, and 50% mass loss, as well as the mean residence time associated using the Weibull model parameters. We then calculated the mean and 95% confidence intervals associated with the bootstrapped model parameters and report model RMSE and AIC.
+  - **Data**: MaillardHFA_Exp2_masslossdata.csv
+ - **MetaData**: MaillardHFA_Exp2_masslossdata_metadata.csv
+ - **Code**: MaillardHFA_Exp2_modelfitting.R
+
 
 **References**
 Cornwell WK, Weedon JT (2014) Decomposition trajectories of diverse litter types: a model selection analysis. Methods in Ecology and Evolution 5(2):173–182.
