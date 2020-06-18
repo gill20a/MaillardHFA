@@ -202,12 +202,10 @@ output[i,"RMSE_weibull"]<-rmse(xNA$weibull.predict, Mt)
 
 ###This file contains summarized model parameters for the two litter origin treatments in 
 #experiment one
-output
-
-#################################################################################################
-##Need to run curve fitting and export output file on Exp 2 before running this part
-para<-read.csv("20200506_ModelParameters.csv", header=T, sep=",")
-head(para)
+write.csv(output, "20200618_MaillardHFA_Exp1Params.csv")
+# 
+# #################################################################################################
+# Figure showing weibull fits and 95% confidence intervals
 
 s1=subset(Champ,Champ$Origin=="Champ")
 t=(as.numeric(s1$time_years))
@@ -219,13 +217,9 @@ x <- data.frame(t, Mt)
 Champ.xNA<-na.exclude(x)
 
 
-Champ.Mass.mean<- exp(-(t1/para[1,"weibull.beta"])^para[1,"weibull.alpha"])
-Champ.Mass.975<- exp(-(t1/para[1,"weibull.beta.0.975"])^para[1,"weibull.alpha.0.975"])
-Champ.Mass.025<- exp(-(t1/para[1,"weibull.beta.0.025"])^para[1,"weibull.alpha.0.025"])
-
-Champ.Asymp.Mass.mean<- para[1,"asymp.A"]+((1-para[1,"asymp.A"])*exp(-para[1,"asymp.k"]*t1))
-Champ.Asymp.Mass.975<- para[1,"asymp.A.0.975"]+((1-para[1,"asymp.A.0.975"])*exp(-para[1,"asymp.k.0.975"]*t1))
-Champ.Asymp.Mass.025<- para[1,"asymp.A.0.025"]+((1-para[1,"asymp.A.0.025"])*exp(-para[1,"asymp.k.0.025"]*t1))
+Champ.Mass.mean<- exp(-(t1/output[1,"weibull.beta"])^output[1,"weibull.alpha"])
+Champ.Mass.975<- exp(-(t1/output[1,"weibull.beta.0.975"])^output[1,"weibull.alpha.0.975"])
+Champ.Mass.025<- exp(-(t1/output[1,"weibull.beta.0.025"])^output[1,"weibull.alpha.0.025"])
 
 ##
 s1=subset(Champ,Champ$Origin=="Breu")
@@ -238,15 +232,11 @@ x <- data.frame(t, Mt)
 Breu.xNA<-na.exclude(x)
 
 
-Breu.Mass.mean<- exp(-(t1/para[2,"weibull.beta"])^para[2,"weibull.alpha"])
-Breu.Mass.975<- exp(-(t1/para[2,"weibull.beta.0.975"])^para[2,"weibull.alpha.0.975"])
-Breu.Mass.025<- exp(-(t1/para[2,"weibull.beta.0.025"])^para[2,"weibull.alpha.0.025"])
+Breu.Mass.mean<- exp(-(t1/output[2,"weibull.beta"])^output[2,"weibull.alpha"])
+Breu.Mass.975<- exp(-(t1/output[2,"weibull.beta.0.975"])^output[2,"weibull.alpha.0.975"])
+Breu.Mass.025<- exp(-(t1/output[2,"weibull.beta.0.025"])^output[2,"weibull.alpha.0.025"])
 
-Breu.Asymp.Mass.mean<- para[2,"asymp.A"]+((1-para[2,"asymp.A"])*exp(-para[2,"asymp.k"]*t1))
-Breu.Asymp.Mass.975<- para[2,"asymp.A.0.975"]+((1-para[2,"asymp.A.0.975"])*exp(-para[2,"asymp.k.0.975"]*t1))
-Breu.Asymp.Mass.025<- para[2,"asymp.A.0.025"]+((1-para[2,"asymp.A.0.025"])*exp(-para[2,"asymp.k.0.025"]*t1))
-
-par(mfrow=c(1,2), mgp=c(2.5,1,0), mar=c(4,4,3,1))
+par(mfrow=c(1,1), mgp=c(2.5,1,0), mar=c(4,4,3,1))
 ##
 plot(t1, Champ.Mass.mean, type="l", lwd=3, col="paleturquoise3", ylim=c(0,1.2), xlab="Years",
      ylab="Proportion Litter Mass Remaining", main="Exp. 1 Weibull Model \n95% CI")
@@ -258,19 +248,7 @@ points(t1, Breu.Mass.mean, type="l", lwd=3, col="darkgoldenrod")
 points(Breu.xNA$t, Breu.xNA$Mt, col="darkgoldenrod")
 polygon(c(t1[2:1000],rev(t1[2:1000])), c((Breu.Mass.975[2:1000]),rev((Breu.Mass.025[2:1000]))),
         col= rgb(0.933,0.91,0.667, alpha=0.3), border=F)
-legend("topright", c("Champ", "Breu"), col=c("paleturquoise3", "darkgoldenrod"), pch=16, bty="n")
+legend("topright", c("Champ Litter", "Breu Litter"), col=c("paleturquoise3", "darkgoldenrod"), pch=16, bty="n")
 
-##
-plot(t1, Champ.Asymp.Mass.mean, type="l", lwd=3, col="paleturquoise3", ylim=c(0,1.2), xlab="Years",
-     ylab="Proportion Litter Mass Remaining", main="Exp. 1 Asymptotic Model \n95% CI")
-points(Champ.xNA$t, Champ.xNA$Mt, col="paleturquoise3")
-polygon(c(t1[2:1000],rev(t1[2:1000])), c((Champ.Asymp.Mass.975[2:1000]),rev((Champ.Asymp.Mass.025[2:1000]))),
-        col= rgb(0.59,0.8,0.8, alpha=0.3), border=F)
-
-points(t1, Breu.Asymp.Mass.mean, type="l", lwd=3, col="darkgoldenrod")
-points(Breu.xNA$t, Breu.xNA$Mt, col="darkgoldenrod")
-polygon(c(t1[2:1000],rev(t1[2:1000])), c((Breu.Asymp.Mass.975[2:1000]),rev((Breu.Asymp.Mass.025[2:1000]))),
-        col= rgb(0.933,0.91,0.667, alpha=0.3), border=F)
-legend("topright", c("Champ", "Breu"), col=c("paleturquoise3", "darkgoldenrod"), pch=16, bty="n")
 
 
