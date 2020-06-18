@@ -1,1 +1,6 @@
-
+﻿ColumnName,Description,Units,Levels
+ID_sample,unique sample ID,NA,NA
+Site,site of litter decomposition,NA,Champ
+Origin,site of litter origin,NA,"Champ, Breu"
+time,time since litter deployment,days,NA
+mass_loss,percent litter mass loss,percent,NA
