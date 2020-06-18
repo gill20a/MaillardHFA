@@ -4,7 +4,7 @@ This repository contains all code to replicate model fits, analyses, and figures
 
 This project contains two complementary studies exploring home/away effects on the *Quercus petraea* leaf litter decomposition process. In Experiment 1, leaf litter was reciprocally transplanted between two sites (factorial cross) and harvested at approximately 3-month intervals over a two year period to evaluate the rate of substrate mass loss. In Experiment 2, leaf litter from both sites was decomposed at a single site and harvested at approximately 6-month intervals, and additional micorbial community and decomposition processes were evaluated at each harest point.
 
-Litter bags were deployed in a transect and removed randomly at each harvest point (**experiment one**: 3 litter bags per harvest; **experiment two**: 13 litter bags per harvest). We used weibull decomposition models (Cornwell *et al.* 2014) to describe  substrate decomposition dynamics throughout each litter decay period. The weibull model characterizes the litter decay process as a continuous Weibull distribution of residence times described by scale (β),  and shape (α) parameters: 
+Litter bags were deployed in a transect and removed randomly at each harvest point (**Experiment one**: 3 litter bags per harvest; **Experiment two**: 13 litter bags per harvest). We used weibull decomposition models (Cornwell *et al.* 2014) to describe  substrate decomposition dynamics throughout each litter decay period. The weibull model characterizes the litter decay process as a continuous Weibull distribution of residence times described by scale (β),  and shape (α) parameters: 
 
 *X* = e<sup>-(t/β)<sup>α</sup>	</sup>		
 
