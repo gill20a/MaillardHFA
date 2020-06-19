@@ -10,7 +10,7 @@ library(nlstools)
 library(RCurl)
 
 #Download data file. 
-urlfile = "https://raw.githubusercontent.com/gill20a/MaillardHFA/master/MaillardHFA_Exp1_masslossdata.csv?token=ABRRWDRGC6DJYGVMINV6EJS65PSLG"
+urlfile = "https://raw.githubusercontent.com/gill20a/MaillardHFA/master/MaillardHFA_Exp1_masslossdata.csv"
 data<-read.csv(url(urlfile))
 head(data)
 
