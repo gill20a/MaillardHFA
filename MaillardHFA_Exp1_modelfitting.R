@@ -33,10 +33,6 @@ colnames(output)<-c("Exp",	"Site",	"LitterOrigin",	"RMSE_single",	"RMSE_weibull"
                     "weibull.quarter.life",	"weibull.tenth.life")
 
 
-#Here, models are fit one at a time. You could make this a loop if you 
-#are convinced all your models will converge using the same starting values.
-#I never have such luck.
-
 
 half.life.calc=function(nls.mod){
   pars= coef(nls.mod)
